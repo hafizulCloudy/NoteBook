@@ -1,0 +1,51 @@
+$data = \DB::query()
+            ->select(['r1.*','r2.*'])
+            ->fromSub(function($query){
+                $query->select(['d.id','d.description','d.created_at as date','d.user_id','c.package_no','c.name_en','t.title'])
+                ->from('data_acquisitions as d')
+                ->leftJoin('components as c', 'c.id','=','d.component_id')
+                ->leftJoin('data_input_titles as t','t.id','=','d.data_input_title_id');
+            },'r1')
+            ->leftJoinSub(function($query){
+                $query->select(['u.name as created','f.file_path','f.is_approve','f.fm_category_id','f.table_id as table_id'])
+                ->from('file_managers  as f')->where('f.fm_category_id',38)
+                ->leftJoin('users as u','u.id','=','f.created_by');
+            // ->leftJoin('users as ap','ap.id','=','f.approval_by');
+            },'r2','r2.table_id','=','r1.id')->where('r1.user_id',$user->id)
+            ->paginate(20);
+
+return \App\data_acquisition::with(['file_managers'=>function($q){
+            $q->where('id',442);
+        }])->find(40);
+
+$presentations =Content::with(['ratings' => function($q) use($userid) {
+            $q->where('rated_by', '!=', $userid); 
+        }])
+         ->where('type_id' ,14)
+         ->where('status' ,'A')
+         ->when($division_pre, function ($query, $division_pre) {
+             return $query->where([['division_id', $division_pre],['status' ,'A']]);
+         })
+         ->when($district_pre, function ($query, $district_pre) {
+             return $query->where([['district_id', $district_pre],['status' ,'A']]);
+         })
+         ->when($upazila_pre, function ($query, $upazila_pre) {
+             return $query->where([['upazila_id', $upazila_pre],['status' ,'A']]);
+         })
+         ->orderBy('contents.created_at', 'DESC')
+         ->take(10)
+         ->get();
+
+{{-- <form action="{{ route('source_of_fund.destroy', $item->id)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <a class="edit-service-type-modal btn btn-warning btn-xs"  
+                              href="{{route   ('source_of_fund.edit',$item->id)}}" title="Edit"><i class="fa fa-edit"></i>
+                            </a> 
+          
+                            <a class="delete-service-type-modal btn btn-danger btn-xs button delete-confirm" 
+                              href="{{route('source_of_fund.destroy',$item->id)}}" id="delete" title="Delete" data-id="{{$item->id  }}"><i class="fa fa-trash"></i> 
+                            </a>  
+
+                            {{-- <button class="delete-service-type-modal btn btn-danger btn-xs" id="procurement_delete" title="Delete"><i class="fa fa-trash"></i> 
+                            </button> --}}

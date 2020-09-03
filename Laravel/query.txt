@@ -1,0 +1,45 @@
+
+Route::get('test',function(){
+    
+    $id=1;
+    $train = DB::query()
+        ->select(['t.id','t.title'])
+        ->from('trainings as t')
+        ->where('t.training_category_id','=',$id)
+        ->get();
+    
+    $at = DB::query()
+        ->select(['ta.training_id', DB::raw( 'sum(ta.number_of_event) as number ' )])
+        ->from('training_activities as ta')
+        ->groupBy(['ta.training_id']);
+        //->toSql();
+
+    $re = DB::query()
+        ->select(['train.*','at.*'])
+        ->from('trainings as train')
+        ->where('train.training_category_id','=',$id)
+        ->leftJoinSub(function($query){
+            $query->select(['ta.training_id', DB::raw( 'sum(ta.number_of_event) as number_of_event '),DB::raw( 'sum(ta.     number_of_batch) as number_of_batch ')])
+                ->from('training_activities as ta')
+                ->groupBy(['ta.training_id']);
+        },'at','train.id','=','at.training_id')
+        ->toSql();
+
+        
+    $re = DB::query()
+        ->select(['train.*','at.number'])
+        ->fromSub(function($query){
+            $query->select(['t.id','t.title'])
+                ->from('trainings as t')
+                ->where('t.training_category_id','=',1);
+        },'train')
+        ->leftJoinSub(function($query){
+            $query->select(['ta.training_id', DB::raw( 'sum(ta.number_of_event) as number ' )])
+                ->from('training_activities as ta')
+                ->groupBy(['ta.training_id']);
+        },'at','train.id','=','at.training_id')
+        ->toSql();
+
+
+        return $re;
+});

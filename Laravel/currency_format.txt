@@ -1,0 +1,17 @@
+@php
+	$amount = '12345.67';
+	$formatter = new NumberFormatter('en_BD',  NumberFormatter::CURRENCY);
+	echo 'UK: ', $formatter->formatCurrency($amount, 'BDT'), PHP_EOL;
+						
+@endphp
+
+const formatter = new Intl.NumberFormat('en-BD', {
+	style: 'currency',
+	currency: 'BDT',
+	minimumFractionDigits: 2
+})
+
+formatter.format(1000) // "$1,000.00"
+formatter.format(10) // "$10.00"
+var a = formatter.format(12323.3000) // "$123,233,000.00"
+console.log("BDT "+a)

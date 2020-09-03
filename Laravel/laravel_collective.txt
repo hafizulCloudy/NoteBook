@@ -1,0 +1,52 @@
+@foreach ($package_progress as $item)
+              <h1>{{ $item->area_of_activities }}</h1> <br>
+
+              @php
+                $obj = json_decode($item['key_indicators'],true);
+              @endphp
+
+              @foreach ($obj as $item)
+              <p>@php echo $item @endphp<p> <br>
+            @endforeach
+              
+                
+            @endforeach
+
+{!! Form::select('key_indicators[]', \App\Indicator::pluck('name_en', 'id'), old('key_indicators',
+                        json_decode($package_progress->key_indicators)), [ 'multiple' =>
+                        'multiple', 'class' => 'form-control custom-select select2 full-width', 'data-init-plugin'=>'select2', 'id' => '']) !!}
+
+
+  <div class="form-group">
+                        <label for="source_of_fund_name_bn">Area of Activity</label>
+                        {!! Form::select('area_of_activities[]', \App\Camp::pluck('name_en', 'id'), old('area_of_activities',
+                        json_decode($package_progress[0]->area_of_activities)), [ 'multiple' =>
+                        'multiple', 'class' => 'form-control custom-select select2 full-width', 'data-init-plugin'=>'select2', 'id' => '']) !!}
+                    </div>
+                    <div class="from-group">
+                        <label for="source_of_fund_name_bn">Area of Activity Details</label>
+                        <textarea name="area_of_activity_details" id="" class="form-control" cols="30" rows="5">
+
+                        </textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="source_of_fund_name_bn">Contactors</label>
+                        {!! Form::select('contactors[]', \App\Contactor::pluck('name_en', 'id'), old('contactors',
+                        json_decode($package_progress[0]->contactors)), [ 'multiple' =>
+                        'multiple', 'class' => 'form-control custom-select select2 full-width', 'data-init-plugin'=>'select2', 'id' => '']) !!}
+                    </div>
+
+<div class="form-group">
+                        <label for="source_of_fund_name_bn">Key Indicator To Resume Progress</label>
+                        
+                        {!! Form::select('key_indicators[]', \App\Indicator::pluck('name_en','id' ,'component_id','=',$component->id), old('key_indicators',
+                        json_decode($package_progress[0]->key_indicators)), [ 'multiple' =>
+                        'multiple', 'class' => 'form-control custom-select select2 full-width', 'data-init-plugin'=>'select2', 'id' => '']) !!}
+                        
+                    </div>
+
+ {!! Form::select('teamlead_id',App\User::where(function($query){
+                    $query->where('role',15)->get();
+                })->pluck('name', 'id'), old('teamlead_id',$user->teamlead_id),
+                 ['class' => 'form-control form-control-sm  custom-select2 ', 'id' => 'status', 'required' => 'required']) !!}
+
