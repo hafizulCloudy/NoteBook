@@ -1,3 +1,14 @@
+Product::where( function($query) use($request){
+                     return $request->price_id ?
+                            $query->from('prices')->where('id',$request->price_id) : '';
+				})->where(function($query) use($request){
+				  	 return $request->color_id ?
+				  	        $query->from('colors')->where('id',$request->color_id) : '';
+				})
+				->with('price','color')
+				->get();
+
+
 $data = \DB::query()
             ->select(['r1.*','r2.*'])
             ->fromSub(function($query){
