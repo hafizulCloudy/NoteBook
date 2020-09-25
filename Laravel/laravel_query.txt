@@ -46,6 +46,11 @@ $presentations =Content::with(['ratings' => function($q) use($userid) {
          ->orderBy('contents.created_at', 'DESC')
          ->take(10)
          ->get();
+	 
+	 // return \App\User::selectRaw('year(created_at) as year, monthname(created_at) as month, count(*) as published')
+        //    ->groupBy('year','month')
+        //    ->orderByRaw('min(created_at) desc')
+        //    ->get();
 
 {{-- <form action="{{ route('source_of_fund.destroy', $item->id)}}" method="post">
                             @csrf
