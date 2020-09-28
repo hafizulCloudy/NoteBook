@@ -33,3 +33,6 @@
 29. git clone copy_link project_name (clone others project form remote repository to working  directory )
 30. git fetch (remote repository to rocal repository any commit or others update )
 31. git pull (local repository to working directory any commit or others update ) (30 & 31 command working together)
+
+
+git push origin --delete test  (delte branch from remote repo.)
