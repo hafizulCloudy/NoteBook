@@ -64,4 +64,23 @@ $presentations =Content::with(['ratings' => function($q) use($userid) {
                             </a>  
 
                             {{-- <button class="delete-service-type-modal btn btn-danger btn-xs" id="procurement_delete" title="Delete"><i class="fa fa-trash"></i> 
-                            </button> --}}
+          
+	  </button> --}}
+
+
+                                                 -------------------------------------
+	return \DB::table('customers as c')
+            ->leftJoinSub(function($query){ 
+                $query->select(['p.customer_id',\DB::raw( 'sum(p.due_amount) as total_due_amount '),\DB::raw('count(*) as total_order')])
+                ->from('payments as p')    
+                ->groupBy('p.customer_id'); 
+            },'r2','c.id','=','r2.customer_id')
+            ->select(['c.*','r2.*'])
+            ->paginate(2);
+
+
+
+--                                             -------------------------------------------
+                  customer::withCount(['payments'=>function($query){
+                               $query->select(\DB::raw('SUM(due_amount)'));
+                           }])->get();
