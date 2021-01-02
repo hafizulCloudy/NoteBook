@@ -84,3 +84,28 @@ $presentations =Content::with(['ratings' => function($q) use($userid) {
                   customer::withCount(['payments'=>function($query){
                                $query->select(\DB::raw('SUM(due_amount)'));
                            }])->get();
+			   
+			   
+			   -------------------------------Search Query with when----------------------------------------
+			    $data = data_acquisition::with('files:table_id,file_path,is_approve','data_input_title:id,title','component:id,package_no,name_en', 'upload_by:id,name','upazila:id,name','union:id,name')
+            ->when($request->package_id,function($q) use($request) {
+                return $q->where('component_id',$request->package_id);
+            })
+            ->when($request->user_id,function($q) use($request) {
+                return $q->where('user_id',$request->user_id);
+            })
+            ->when($request->title_id,function($q) use($request) {
+                return $q->where('data_input_title_id',$request->title_id);
+            })
+            ->when($request->from_date,function($q) use($request) {
+                return $q->whereBetween('date',[$request->from_date,$request->to_date]);
+            })
+            ->when($are_id,function($q) use($are_id) {
+                return $q->whereIn('user_id',$are_id);
+            })
+            ->when($approve,function($q) use($approve) {
+                return $q->whereIn('is_publish',$approve);
+            })
+            ->latest()->paginate(20);
+	    
+	    ------------------------------End--------------------------------------------
