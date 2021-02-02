@@ -35,7 +35,16 @@
 31. git pull (local repository to working directory any commit or others update ) (30 & 31 command working together)
 
 
-git push origin --delete test  (delte branch from remote repo.)
+32. git push origin --delete test  (delte branch from remote repo.)
 
 --------------------------------------new log command----------------------------------------
-git config --global alias.hist "log --pretty=format:'%C(yellow)[%ad]%C(reset) %C(green)[%h]%C(reset) | %C(red)%s %C(bold red){{%an}}%C(reset) %C(blue)%d%C(reset)' --graph --date=short"
+33. git config --global alias.hist "log --pretty=format:'%C(yellow)[%ad]%C(reset) %C(green)[%h]%C(reset) | %C(red)%s %C(bold red){{%an}}%C(reset) %C(blue)%d%C(reset)' --graph --date=short"
+
+34. git checkout hafiz 
+35. git rebase master   (this command merge master with hafiz)
+
+36. git cherry-pick commit-number   (this is as like merge command and merge with specfic commit number)     
+
+37. git revert head (git reset previous command with new commit and back to previous comand)
+38. git reset --hard head (git reset previous command ) no commit 
+
