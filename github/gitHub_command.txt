@@ -48,3 +48,5 @@
 37. git revert head (git reset previous command with new commit and back to previous comand)
 38. git reset --hard head (git reset previous command ) no commit 
 
+39. git cat-file --batch-check --batch-all-objects (all show blob and tree file)
+
