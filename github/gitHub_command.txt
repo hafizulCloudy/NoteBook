@@ -48,5 +48,9 @@
 37. git revert head (git reset previous command with new commit and back to previous comand)
 38. git reset --hard head (git reset previous command ) no commit 
 
-39. git cat-file --batch-check --batch-all-objects (all show blob and tree file)
+39. find .git/objects -type f
+40. git gc --aggressive
+41. git cat-file --batch-check --batch-all-objects (all show blob and tree file)
+42. find .git/objects -type f
+43. git verify-pack -v .git/objects/pack/pack-01a1dd03fe091b57554a17aa39584a6264eecebc.pack
 
