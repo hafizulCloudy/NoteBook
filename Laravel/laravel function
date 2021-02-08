@@ -30,4 +30,5 @@ DB::listen(function($query) {
  
  protected $with = array('user', 'category');
  
- =================================================================================
+ =====================================Loop Index Id=========================================
+ {{ $loop->index + $component->firstItem() }} 
