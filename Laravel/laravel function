@@ -1,1 +1,8 @@
 {{$drivers->appends(request()->input())->links()}}
+
+
+==============================Carbon Function===========================
+
+{{ \Carbon\Carbon::parse( $item->created_at )->format('d M Y')  }}
+
+========================================================================
