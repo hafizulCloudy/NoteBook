@@ -1,16 +1,33 @@
+
+==========================PAgination array add input =============================
 {{$drivers->appends(request()->input())->links()}}
 
 
-==============================Carbon Function===========================
+==============================Carbon Function=====================================
 
 {{ \Carbon\Carbon::parse( $item->created_at )->format('d M Y')  }}
 
-============================Belongs to Relation=========================
+============================Belongs to Relation===================================
 
  public function subcategory() 
     {
         return $this->belongsTo('App\Model\Category', 'sub_category_id', 'id');
     }
     
-========================================================================
+=================================================================================
+if we want to log generate for query purpose then add this code appservice provider boot method
 
+DB::listen(function($query) {
+            Log::info(
+                $query->sql,
+                $query->bindings,
+                $query->time
+            );
+        });
+        
+ =============================== Eager Load automatically ==================================
+ paste this code modal 
+ 
+ protected $with = array('user', 'category');
+ 
+ =================================================================================
