@@ -5,4 +5,12 @@
 
 {{ \Carbon\Carbon::parse( $item->created_at )->format('d M Y')  }}
 
+============================Belongs to Relation=========================
+
+ public function subcategory() 
+    {
+        return $this->belongsTo('App\Model\Category', 'sub_category_id', 'id');
+    }
+    
 ========================================================================
+
