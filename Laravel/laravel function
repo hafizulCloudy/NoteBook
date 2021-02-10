@@ -32,3 +32,17 @@ DB::listen(function($query) {
  
  =====================================Loop Index Id=========================================
  {{ $loop->index + $component->firstItem() }} 
+ 
+ ====================================auto coloumn add when creating ========================
+ Add this code any modal 
+ 
+ protected static function boot()
+    {
+        parent::boot();
+
+        Post::creating(function($model) {
+            $model->is_publish =   1;
+        });
+    }
+    
+    =========================================================================================
