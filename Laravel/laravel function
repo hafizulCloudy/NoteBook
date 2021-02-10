@@ -43,6 +43,10 @@ DB::listen(function($query) {
         Post::creating(function($model) {
             $model->is_publish =   1;
         });
+        
+        Post::updating(function($model) {
+            $model->is_publish =   1;
+        });
     }
     
     =========================================================================================
