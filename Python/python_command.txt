@@ -1,0 +1,6 @@
+1. Create Modal in Python
+
+  python manage.py makemigrations
+
+2. create Migration
+  python manage.py migrate
