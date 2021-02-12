@@ -22,5 +22,5 @@ def function():
         print(line,end='')
 
 
-if __name__ = 'main'
+if __name__ == 'main':
     function()
