@@ -1,0 +1,12 @@
+File Handaling in python
+
+def function():
+
+  try:
+      my_file = open('test.txt')
+      content = my_file.read('i am a hafiz')
+     
+
+  except IOError as e:
+      errno, strerror = e.args
+      print("I/O error({0}): {1}".format(errno,strerror))
