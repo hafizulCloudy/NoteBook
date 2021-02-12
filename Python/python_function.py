@@ -1,4 +1,6 @@
 ####################File Handaling in python
+# with open('test.txt', 'r') as my_file:
+
 
 def function():
 
