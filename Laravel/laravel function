@@ -2,7 +2,8 @@
 ==========================PAgination array add input =============================
 {{$drivers->appends(request()->input())->links()}}
 
-
+============================Selected lsit========================================
+  {{ $item->id == $category_id? 'selected= "selected" ':'' }}
 ==============================Carbon Function=====================================
 
 {{ \Carbon\Carbon::parse( $item->created_at )->format('d M Y')  }}
