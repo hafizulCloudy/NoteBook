@@ -15,3 +15,11 @@ function GetCartProducts() {
     console.log(SKUs);
 }
 GetCartProducts();
+
+
+ $('body').on('click', '#addReport', function(e) {
+                e.preventDefault();
+                var url =  $(this).attr('href');
+                console.log(url)
+                alert('hi')
+            })
