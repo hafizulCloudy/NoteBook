@@ -10,7 +10,6 @@
 
 
 
-
 # Eloquent: Collections
 
 - [Introduction](#introduction)
