@@ -4,7 +4,7 @@
 - [indent rainbow](#indent_rainbow)
 - [auto rename tag](#)
 - [HTML-css support](#)
-- [Live Sass Compiler(#indent_rainbow)
+- [Live Sass Compiler(#)
 - [Live server](#)
 - [Emmet](#)
 - [CSS peak](#)
