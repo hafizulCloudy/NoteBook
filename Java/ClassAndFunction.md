@@ -1,11 +1,12 @@
 # Java: Class Constructor   
    // filename: Main.java 
-    class Base { 
-      int x; 
-      Base(int _x) { 
-        x = _x; 
-      } 
-    } 
+   
+       class Base { 
+         int x; 
+         Base(int _x) { 
+           x = _x; 
+         } 
+       } 
 
     class Derived extends Base { 
       int y; 
