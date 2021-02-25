@@ -10,7 +10,7 @@
 - [2. Data Link Layer](#data-link)
     - [Reliable transmission of data `frames` between two nodes connected by a physical layer ]()
 - [1. Physical Layer](#physical)
-    - [Transmission and reception of `raw bit` streams over a physical medium]()
+    - [Transmission and reception of `raw bit` streams over a physical medium]
 
 <a name="application-layer"></a>
 ## Application Layer
