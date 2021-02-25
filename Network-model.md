@@ -11,6 +11,7 @@
     - Reliable transmission of data `frames` between two nodes connected by a physical layer `error control` and `Adds Logical addresses of the sender and receivers`
 - [1. Physical Layer](#physical)
     - Transmission and reception of `raw bit` streams over a physical medium
+        Examples of hardware in the physical layer are network adapters, ethernet, repeaters, networking hubs, etc.
 
 <a name="application-layer"></a>
 ## Application Layer
