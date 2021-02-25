@@ -4,7 +4,7 @@
 - [6. Presentation Layer](#presentation-layer)
 - [5. Session Layer](#session)
 - [4. Transport Layer](#Transport)
-    -[	Reliable transmission of data segments between points on a network, including `segmentation`, `acknowledgement` and `multiplexing`] ()
+    - [Reliable transmission of data segments between points on a network, including `segmentation`, `acknowledgement` and `multiplexing`]()
 - [3. Network Layer](#network)
     -[Structuring and managing a multi-node network, including `addressing`, `routing` and `traffic control` `packet`]()
 - [2. Data Link Layer](#data-link)
