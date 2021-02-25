@@ -8,7 +8,7 @@
 - [3. Network Layer](#network)
     - Structuring and managing a multi-node network, including `addressing`, `routing` and `traffic control` `packet`
 - [2. Data Link Layer](#data-link)
-    - Reliable transmission of data `frames` between two nodes connected by a physical layer 
+    - Reliable transmission of data `frames` between two nodes connected by a physical layer `error control` and `Adds Logical addresses of the sender and receivers`
 - [1. Physical Layer](#physical)
     - Transmission and reception of `raw bit` streams over a physical medium
 
