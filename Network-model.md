@@ -7,6 +7,9 @@
     - Reliable transmission of data segments between points on a network, including `segmentation`, `acknowledgement` and `multiplexing`
 - [3. Network Layer](#network)
     - Structuring and managing a multi-node network, including `addressing`, `routing` and `traffic control` `packet`
+    - routing protocols
+    - multicast group management
+    - network-layer address assignment.
 - [2. Data Link Layer](#data-link)
     - Reliable transmission of data `frames` between two nodes connected by a physical layer `error control` and `Adds Logical addresses of the sender and receivers`
 - [1. Physical Layer](#physical)
