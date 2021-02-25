@@ -2,6 +2,11 @@
 - [7. Application Layer](#application-layer)
   
 - [6. Presentation Layer](#presentation-layer)
+    - This layer is also known as a syntax layer.
+    - Character code translation from ASCII to EBCDIC.
+    - Data compression: Allows to reduce the number of bits that needs to be transmitted on the network.
+    - Data encryption: Helps you to encrypt data for security purposes — for example, password encryption.
+    - It provides a user interface and support for services like email and file transfer.
 - [5. Session Layer](#session)
 - [4. Transport Layer](#Transport)
     - Reliable transmission of data segments between points on a network, including `segmentation`, `acknowledgement` and `multiplexing`
